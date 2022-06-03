@@ -52,16 +52,18 @@ class Api:
     """
 
     def create_new_channel(self, channel_id, title=None, description=None):
-        author_obj = {"name": self.author}
         channel = {
             "type": "channel",
             "_id": channel_id,
             "title": title,
             "description": description,
-            "author": author_obj,
-            "authors": [author_obj],
-            "items" :[],
+            "version": self.version,
+            "feed_url":self.feed_base_url.format(channel_id),
             "home_page_url": self.home_page_url,
+            "type": "channel",
+            "author": self.author,
+            "authors": [self.author],
+            "items" :[]
         }
         r = self.requests_session.put(
             self.DB_API + "/" + requests.utils.quote(channel_id, safe=""),

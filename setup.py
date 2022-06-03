@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="readlist",
-    version="0.7",
+    version="0.73",
     author="Thejesh GN",
     author_email="i@thejeshgn.com",
     description="The client for Readlist",

@@ -23,7 +23,7 @@ from urllib.parse import urlparse
 from docopt import docopt
 
 CONFIG_FILE = "~/.readlist/config.json"
-VERSION = "0.7"
+VERSION = "0.73"
 
 
 class ReadlistClient:
@@ -88,9 +88,9 @@ class ReadlistClient:
         title = None
         description = None
         if self.arguments["-t"]:
-            title = self.arguments["-t"]
+            title = self.arguments["<title>"]
         if self.arguments["-d"]:
-            description = self.arguments["-t"]
+            description = self.arguments["<description>"]
 
         self.api.create_new_channel(
             channel, title=title, description=description
